@@ -160,14 +160,27 @@ with tab1:
     with c_b: st.success("加载后生成：📊业财看板 | 🚨指标预警 | 💰预算分析 | 🎯战略追踪 | 🏭行业对比 | 📄自动报告")
 
     if st.button("🚀 加载立讯精密数据", type="primary", use_container_width=True):
-        with st.spinner("解析CSMAR数据..."):
+        with st.spinner("加载数据..."):
+            # 尝试从本地CSMAR文件加载
             base = r"C:\Users\邹嘉欣\Desktop\AI财务分析网页\立讯精密财务报表"
-            parser = CSMARParser(base)
-            bs = parser.parse_balance_sheet(); inc = parser.parse_income_statement(); cf = parser.parse_cashflow()
+            if os.path.exists(base):
+                parser = CSMARParser(base)
+                bs = parser.parse_balance_sheet(); inc = parser.parse_income_statement(); cf = parser.parse_cashflow()
+            else:
+                # Streamlit Cloud fallback: 使用内嵌数据
+                from sample_data.luxshare_data import INCOME_STATEMENT, BALANCE_SHEET, CASHFLOW, YEARS
+                bs = pd.DataFrame(BALANCE_SHEET, index=YEARS).reset_index().rename(columns={"index": "年份"})
+                inc = pd.DataFrame(INCOME_STATEMENT, index=YEARS).reset_index().rename(columns={"index": "年份"})
+                cf = pd.DataFrame(CASHFLOW, index=YEARS).reset_index().rename(columns={"index": "年份"})
+
             st.session_state.balance_sheet = bs; st.session_state.income_statement = inc; st.session_state.cashflow = cf
             st.session_state.years = [int(y) for y in bs["年份"]]
-            st.session_state.data_loaded = True; st.session_state.company_name = parser._get_company_name()
-            st.session_state.company_code = parser._get_company_code(); st.session_state.data_source = "CSMAR"
+            st.session_state.data_loaded = True
+            try:
+                st.session_state.company_name = parser._get_company_name()
+                st.session_state.company_code = parser._get_company_code()
+            except: st.session_state.company_name = "立讯精密"; st.session_state.company_code = "002475"
+            st.session_state.data_source = "CSMAR"
 
         validation = validate_all(bs, inc, cf)
         if validation["all_valid"]: st.success(f"✅ {st.session_state.company_name} ({st.session_state.company_code})")
