@@ -113,7 +113,10 @@ def badge(status, text=""):
     st.markdown(f'<span style="display:inline-block;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:600;color:#fff;background:{c};">{display}</span>', unsafe_allow_html=True)
 
 def spark(vals, h=50, color=INK):
-    fig = go.Figure(go.Scatter(y=vals, mode="lines", line=dict(color=color, width=1.5), fill="tozeroy", fillcolor=color+"14", showlegend=False))
+    # hex → rgba with alpha
+    r,g,b = int(color[1:3],16), int(color[3:5],16), int(color[5:7],16)
+    fillcolor = f"rgba({r},{g},{b},0.15)"
+    fig = go.Figure(go.Scatter(y=vals, mode="lines", line=dict(color=color, width=1.5), fill="tozeroy", fillcolor=fillcolor, showlegend=False))
     fig.update_layout(height=h, margin=dict(l=0,r=0,t=0,b=0), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", xaxis=dict(visible=False), yaxis=dict(visible=False))
     return fig
 

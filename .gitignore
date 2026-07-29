@@ -28,3 +28,13 @@ reference_skills/
 
 # Large data files
 立讯精密财务报表/
+
+# Claude local config (has tokens)
+.claude/
+.agents/
+skills-lock.json
+
+# Extra files
+DESIGN.md
+sealos-deploy.yaml
+setup.py

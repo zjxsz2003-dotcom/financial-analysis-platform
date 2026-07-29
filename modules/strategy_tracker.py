@@ -93,12 +93,14 @@ def get_kpi_tree_figure(target_name: str, kpi_data: dict) -> go.Figure:
         parents=parents,
         values=values,
         textinfo="label",
-        marker=dict(colors=[COLORS["ember"]] * len(labels)),
+        marker=dict(colors=[COLORS["ember"], COLORS["green"], COLORS["amber"], COLORS["neptune"], COLORS["violet"], COLORS["ink"]]),
+        textfont=dict(color="white", size=11),
     ))
     fig.update_layout(
-        height=250,
+        height=280,
         margin=dict(l=0, r=0, t=10, b=0),
-        paper_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="#ffffff",
+        plot_bgcolor="#ffffff",
     )
     return fig
 
