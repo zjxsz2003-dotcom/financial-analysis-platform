@@ -8,14 +8,14 @@ show_watermark()
 if not is_data_loaded(): st.switch_page("pages/0_📥_数据导入.py")
 
 def _budget_settings():
-    tol = st.slider("偏差容忍度(%)",5,20,10,5,key="bt",on_change=st.rerun)
+    tol = st.slider("偏差容忍度(%)",5,20,10,5,key="bt")
     st.session_state["budget_tolerance"] = tol
     budget = get_budget()
     c1,c2,c3 = st.columns(3)
     for biz,col in [("业务一：智能消费电子",c1),("业务二：汽车电子",c2),("业务三：通信互联",c3)]:
         with col:
             d = budget["收入预算"].get(biz,100)
-            new = st.number_input(f"{biz}",value=float(d),step=1.0,key=f"bgt_{biz[:12]}",on_change=st.rerun)
+            new = st.number_input(f"{biz}",value=float(d),step=1.0,key=f"bgt_{biz[:12]}")
             budget["收入预算"][biz] = new
     budget["收入预算"]["合计"] = sum(v for k,v in budget["收入预算"].items() if k!="合计")
 

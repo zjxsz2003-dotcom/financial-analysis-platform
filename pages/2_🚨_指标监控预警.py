@@ -16,15 +16,15 @@ drill = st.session_state.get("drill_context", {}); breadcrumb("指标预警", dr
 st.markdown(f'<h2>🚨 指标监控预警 — {company}</h2>', unsafe_allow_html=True)
 
 def _settings_ui():
-    mode = st.selectbox("预警模式",["标准","严格","宽松"],index=0,key="am",on_change=st.rerun)
+    mode = st.selectbox("预警模式",["标准","严格","宽松"],index=0,key="am")
     factor = {"严格":0.7,"标准":1.0,"宽松":1.5}.get(mode,1.0)
     cols = st.columns(3); idx = 0
     for dim, inds in KPI_DIMENSIONS.items():
         for ind in inds:
             with cols[idx%3]:
                 d = DEFAULT_THRESHOLDS.get(ind,{})
-                DEFAULT_THRESHOLDS[ind] = {"yellow_low":st.number_input(f"{ind}🟡",value=float(d.get("yellow_low",10))*factor,step=0.5,key=f"ty_{ind}",on_change=st.rerun),
-                    "red_low":st.number_input(f"{ind}🔴",value=float(d.get("red_low",5))*factor,step=0.5,key=f"tr_{ind}",on_change=st.rerun),"unit":d.get("unit","")}
+                DEFAULT_THRESHOLDS[ind] = {"yellow_low":st.number_input(f"{ind}🟡",value=float(d.get("yellow_low",10))*factor,step=0.5,key=f"ty_{ind}"),
+                    "red_low":st.number_input(f"{ind}🔴",value=float(d.get("red_low",5))*factor,step=0.5,key=f"tr_{ind}"),"unit":d.get("unit","")}
             idx += 1
 
 settings_panel("预警阈值设置", _settings_ui, "alert")

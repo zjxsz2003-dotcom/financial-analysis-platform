@@ -11,6 +11,18 @@ company = get_company_name(); sd = get_strategy_progress_data()
 drill = st.session_state.get("drill_context",{}); breadcrumb("战略追踪",drill)
 st.markdown(f'<h2>🎯 战略目标追踪 — {company}</h2>', unsafe_allow_html=True)
 
+def _strategy_settings():
+    targets = get_strategy_targets()
+    for i, t in enumerate(targets):
+        st.markdown(f"**目标{i+1}**")
+        c1,c2 = st.columns([3,1])
+        with c1: t["name"] = st.text_input("名称",value=t["name"],key=f"sname_{i}")
+        with c2: t["unit"] = st.text_input("单位",value=t["unit"],key=f"sunit_{i}")
+        c3,c4 = st.columns(2)
+        with c3: t["target_value"] = float(st.number_input("目标值",value=float(t["target_value"]),step=0.1,key=f"stv_{i}"))
+        with c4: t["current_value"] = float(st.number_input("当前值",value=float(t["current_value"]),step=0.1,key=f"scv_{i}"))
+settings_panel("战略目标设置", _strategy_settings, "strategy")
+
 st.plotly_chart(chart_layout(get_strategy_progress_chart(), 260, "年度战略目标完成进度"), use_container_width=True)
 
 for i, t in enumerate(sd):
