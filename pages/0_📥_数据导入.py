@@ -152,8 +152,8 @@ def render_cashflow_statement(df: pd.DataFrame):
 # ============================================================
 st.markdown(f"""
 <div style="text-align:center;padding:10px 0;">
-    <h1 style="color:{COLORS['primary']};margin:0;">📊 企业经营分析预警系统</h1>
-    <p style="color:{COLORS['text_light']};font-size:14px;margin:4px 0;">面向财务BP的业财融合智能分析平台</p>
+    <h1 style="color:{COLORS['ink']};margin:0;">📊 企业经营分析预警系统</h1>
+    <p style="color:{COLORS['slate']};font-size:14px;margin:4px 0;">面向财务BP的业财融合智能分析平台</p>
 </div>""", unsafe_allow_html=True)
 st.divider()
 
