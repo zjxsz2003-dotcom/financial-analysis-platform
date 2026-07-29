@@ -3,7 +3,8 @@ import streamlit as st; import pandas as pd
 from modules.data_loader import is_data_loaded, get_company_name
 from modules.kpi_engine import calc_all_kpis
 from modules.industry_analysis import get_radar_chart, get_industry_comparison_table, INDUSTRY_NEWS_DEMO
-from utils.ui_helpers import *
+from utils.ui_helpers import show_watermark, kpi_row, drill_bar, section, breadcrumb, chart_layout
+show_watermark()
 
 if not is_data_loaded(): st.switch_page("pages/0_📥_数据导入.py")
 

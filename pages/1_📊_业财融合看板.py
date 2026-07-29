@@ -5,7 +5,9 @@ import streamlit as st; import pandas as pd
 from config import COLORS
 from modules.data_loader import is_data_loaded, get_company_name, get_income, get_balance, get_years, get_segment_data, get_special_metrics
 from modules.business_finance import *
-from utils.ui_helpers import *; from modules import business_finance as bf
+from utils.ui_helpers import show_watermark, kpi_row, four_step, dim_row, settings_panel, drill_bar, alert_strip, badge, spark, section, breadcrumb, chart_layout
+show_watermark()
+from modules import business_finance as bf
 
 if not is_data_loaded(): st.switch_page("pages/0_📥_数据导入.py")
 

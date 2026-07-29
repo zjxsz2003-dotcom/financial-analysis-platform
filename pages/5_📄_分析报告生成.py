@@ -4,7 +4,8 @@ from modules.data_loader import is_data_loaded, get_company_name, get_income, ge
 from modules.kpi_engine import calc_all_kpis, get_alert_summary
 from modules.report_generator import build_report_data
 from utils.download import generate_pdf_report
-from utils.ui_helpers import *
+from utils.ui_helpers import show_watermark, kpi_row, drill_bar, alert_strip, badge, section, breadcrumb
+show_watermark()
 
 if not is_data_loaded(): st.switch_page("pages/0_📥_数据导入.py")
 
