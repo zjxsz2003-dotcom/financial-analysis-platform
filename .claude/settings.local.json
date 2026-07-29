@@ -11,7 +11,17 @@
       "PowerShell(python -m py_compile \"pages/4_??_ս��Ŀ��׷��.py\")",
       "PowerShell(python -m py_compile \"pages/5_??_������������.py\")",
       "PowerShell(python -m py_compile \"pages/6_??_��ҵ�Աȷ���.py\")",
-      "PowerShell(git commit -m \"����ҳ������ˮӡ���޼�������ʹ�� + ������2026��7��\" 2>&1)"
+      "PowerShell(git commit -m \"����ҳ������ˮӡ���޼�������ʹ�� + ������2026��7��\" 2>&1)",
+      "PowerShell(git remote add gitee https://gitee.com/zoujiaxin2003/financial-analysis-platform.git)",
+      "PowerShell(git push gitee master 2>&1)",
+      "PowerShell(git remote set-url gitee https://zoujiaxin2003:df4acfcfb5b213cfbc5c8101873b0f62@gitee.com/zoujiaxin2003/financial-analysis-platform.git)",
+      "PowerShell(git remote set-url gitee https://gitee.com/zoujiaxin2003/financial-analysis-platform.git 2>&1)",
+      "WebFetch(domain:gitee.com)",
+      "PowerShell(pip install cloudflared 2>&1)",
+      "WebFetch(domain:sealos.run)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://sealos.run\" -TimeoutSec 10 -UseBasicParsing 2>&1)",
+      "PowerShell(npx localtunnel --port 8501 --subdomain zjxcwfx 2>&1)",
+      "PowerShell(git commit -m \"����Dockerfile�����Ʋ���\" 2>&1)"
     ]
   }
 }
