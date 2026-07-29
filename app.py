@@ -30,45 +30,59 @@ from modules.data_loader import get_company_name, get_data_source
 company = get_company_name()
 source = get_data_source()
 
-# 注入Bloomberg终端风全局CSS
+# Slite Design System 全局CSS
 st.markdown("""
 <style>
-    /* === 固定水印顶栏（所有页面可见） === */
-    header[data-testid="stHeader"] {
-        background: #1a2332 !important;
-    }
-    .stApp {
-        margin-top: 24px;
-    }
-    /* === Bloomberg Terminal Style === */
-    .stApp { font-size: 11px; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #f5f6f8; }
-    .stMarkdown h1 { font-size: 18px !important; margin: 4px 0 !important; font-weight: 700; }
-    .stMarkdown h2 { font-size: 15px !important; margin: 3px 0 !important; font-weight: 700; }
-    .stMarkdown h3 { font-size: 13px !important; margin: 2px 0 !important; font-weight: 600; }
-    .stMarkdown h4 { font-size: 11px !important; margin: 1px 0 !important; font-weight: 600; }
-    div[data-testid="stMetric"] label { font-size: 9px !important; text-transform: uppercase; letter-spacing: 0.5px; }
-    div[data-testid="stMetric"] div[data-testid="stMetricValue"] { font-size: 15px !important; font-weight: 700; font-family: 'Consolas','Courier New',monospace; }
-    div[data-testid="stMetric"] div[data-testid="stMetricDelta"] { font-size: 9px !important; }
-    .stDataFrame { font-size: 10px; }
-    .stDataFrame th { font-size: 9px; padding: 3px 6px !important; background: #1a2332; color: #fff; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    .stDataFrame td { font-size: 10px; padding: 2px 6px !important; font-family: 'Consolas','Courier New',monospace; }
-    .stDataFrame tr:nth-child(even) td { background: #f8f9fc; }
-    div.stButton > button { font-size: 10px !important; padding: 3px 10px !important; border-radius: 2px !important; border: 1px solid #d0d4d8 !important; background: #fff !important; color: #2c3e50 !important; }
-    div.stButton > button:hover { border-color: #2c5f8a !important; color: #2c5f8a !important; }
-    hr { margin: 4px 0 !important; border-color: #e0e4e8; }
-    .stExpander { font-size: 11px; }
-    .stExpander summary { font-size: 11px; font-weight: 600; }
-    section[data-testid="stSidebar"] .stMarkdown { font-size: 10px; }
-    section[data-testid="stSidebar"] { background: #1a2332; }
-    section[data-testid="stSidebar"] * { color: #d0d4d8 !important; }
-    /* 数字等宽字体 */
-    [data-testid="stMetricValue"], table td { font-family: 'Consolas','Courier New',monospace !important; }
-    /* 紧凑间距 */
-    .block-container { padding-top: 1rem !important; padding-bottom: 0 !important; }
-    /* 去圆角 */
-    * { border-radius: 1px !important; }
-    /* Select boxes */
-    .stSelectbox label, .stTextInput label, .stNumberInput label { font-size: 10px !important; }
+    /* === Slite: Warm Parchment + Ember Accent === */
+
+    /* ── Canvas ── */
+    .stApp { background: #fdf9f4; font-family: 'Inter', 'Microsoft YaHei', sans-serif; }
+    .main .block-container { padding: 1.5rem 2rem 1rem 2rem; max-width: 1280px; }
+
+    /* ── Typography ── */
+    h1 { font-family: 'Georgia', 'Noto Serif SC', serif !important; font-size: 28px !important; font-weight: 400 !important; color: #2d2f34 !important; letter-spacing: -0.5px !important; margin: 24px 0 8px 0 !important; }
+    h2 { font-family: 'Georgia', 'Noto Serif SC', serif !important; font-size: 22px !important; font-weight: 400 !important; color: #2d2f34 !important; margin: 20px 0 6px 0 !important; }
+    h3 { font-family: 'Inter', 'Microsoft YaHei', sans-serif !important; font-size: 17px !important; font-weight: 600 !important; color: #3f434a !important; margin: 16px 0 4px 0 !important; }
+    .stMarkdown p, .stMarkdown li, .stMarkdown span { font-size: 15px; color: #3f434a; line-height: 1.5; }
+    .stCaption { color: #5e646e !important; font-size: 13px !important; }
+
+    /* ── Sidebar ── */
+    section[data-testid="stSidebar"] { background: #fdf9f4; border-right: 1px solid #ecedef; }
+    section[data-testid="stSidebar"] * { color: #3f434a !important; }
+    section[data-testid="stSidebar"] h2, section[data-testid="stSidebar"] h3 { color: #2d2f34 !important; }
+
+    /* ── Metric Cards ── */
+    div[data-testid="stMetric"] { background: #ffffff; border: 1px solid #ecedef; border-radius: 12px; padding: 14px 18px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    div[data-testid="stMetric"] label { font-size: 11px !important; color: #5e646e !important; text-transform: uppercase; letter-spacing: 0.5px; }
+    div[data-testid="stMetric"] div[data-testid="stMetricValue"] { font-size: 24px !important; font-weight: 600 !important; color: #2d2f34 !important; font-family: 'Georgia',serif !important; }
+
+    /* ── Buttons: Pill ── */
+    div.stButton > button { border-radius: 999px !important; padding: 8px 22px !important; font-size: 14px !important; font-weight: 500 !important; border: 2px solid #3f434a !important; background: transparent !important; color: #3f434a !important; transition: all 130ms ease !important; }
+    div.stButton > button:hover { background: #3f434a !important; color: #fff !important; border-color: #3f434a !important; }
+    /* Primary (Ember) button */
+    div.stButton > button[kind="primary"] { background: #f67748 !important; color: #fff !important; border: 2px solid #f67748 !important; }
+    div.stButton > button[kind="primary"]:hover { background: #e06532 !important; border-color: #e06532 !important; }
+
+    /* ── Expander (Accordion) ── */
+    .stExpander { background: #ffffff; border: 1px solid #ecedef; border-radius: 16px; margin: 8px 0; }
+    .stExpander summary { font-size: 15px; font-weight: 500; color: #2d2f34; padding: 12px 16px; }
+
+    /* ── Data Tables ── */
+    .stDataFrame { border-radius: 12px; overflow: hidden; border: 1px solid #ecedef; }
+    .stDataFrame th { background: #f9efe4 !important; color: #2d2f34 !important; font-size: 12px !important; font-weight: 600 !important; padding: 10px 14px !important; text-transform: none !important; letter-spacing: 0 !important; }
+    .stDataFrame td { font-size: 13px !important; padding: 8px 14px !important; color: #3f434a !important; font-family: 'Inter',sans-serif !important; }
+    .stDataFrame tr:nth-child(even) td { background: #fdf9f4; }
+
+    /* ── Dividers ── */
+    hr { margin: 24px 0 !important; border-color: #ecedef !important; }
+
+    /* ── Select / Input ── */
+    .stSelectbox label, .stTextInput label, .stNumberInput label { font-size: 13px !important; color: #3f434a !important; }
+    .stSelectbox > div, .stTextInput > div { border-radius: 8px !important; }
+
+    /* ── Tabs ── */
+    .stTabs [data-baseweb="tab"] { font-size: 15px !important; color: #5e646e !important; }
+    .stTabs [aria-selected="true"] { color: #f67748 !important; }
 </style>
 """, unsafe_allow_html=True)
 
