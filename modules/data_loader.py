@@ -141,12 +141,16 @@ def get_industry_benchmarks() -> dict:
 
 
 def get_budget() -> dict:
-    """演示预算数据（基于上年实际值的110%推算）"""
+    """演示预算数据（基于上年实际值的110%推算）。session_state缓存，支持用户修改。"""
+    if "budget_cache" in st.session_state:
+        return st.session_state.budget_cache
+
     inc = get_income()
     years = get_years()
 
     if inc is None:
         from sample_data.luxshare_data import BUDGET_2024
+        st.session_state.budget_cache = BUDGET_2024
         return BUDGET_2024
 
     latest_idx = len(years) - 1
@@ -163,7 +167,7 @@ def get_budget() -> dict:
 
     total_rev_budget = rev_actual[prev_idx] * 1.10 if prev_idx < len(rev_actual) else 2600
 
-    return {
+    st.session_state.budget_cache = {
         "收入预算": {
             "业务一：智能消费电子": round(total_rev_budget * 0.83, 1),
             "业务二：汽车电子":     round(total_rev_budget * 0.09, 1),
@@ -187,16 +191,21 @@ def get_budget() -> dict:
             "净利润": round(np_actual[prev_idx] * 1.10, 1) if prev_idx < len(np_actual) else 125,
         },
     }
+    return st.session_state.budget_cache
 
 
 def get_strategy_targets() -> list:
-    """演示战略目标（基于最新年度数据设置）"""
+    """演示战略目标（基于最新年度数据设置）。session_state缓存，支持用户修改。"""
+    if "strategy_cache" in st.session_state:
+        return st.session_state.strategy_cache
+
     inc = get_income()
     bs = get_balance()
     years = get_years()
 
     if inc is None:
         from sample_data.luxshare_data import STRATEGY_TARGETS_2024
+        st.session_state.strategy_cache = STRATEGY_TARGETS_2024
         return STRATEGY_TARGETS_2024
 
     latest = years[-1]
@@ -205,7 +214,7 @@ def get_strategy_targets() -> list:
     equity = bs.loc[bs["年份"] == latest, "股东权益合计"].values[0] if latest in bs["年份"].values else 800
     roe_current = round(np_val / equity * 100, 1) if equity else 15
 
-    return [
+    st.session_state.strategy_cache = [
         {
             "name": "ROE维持15%以上",
             "target_value": 15.0,
@@ -248,6 +257,7 @@ def get_strategy_targets() -> list:
             },
         },
     ]
+    return st.session_state.strategy_cache
 
 
 def get_monthly() -> dict:
