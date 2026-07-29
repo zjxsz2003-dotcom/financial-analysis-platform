@@ -12,6 +12,14 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# 水印顶栏 - 所有页面可见
+st.markdown("""
+<div style="text-align:center;font-size:11px;color:#8899aa;background:#f0f2f5;
+padding:3px 0;letter-spacing:1px;border-bottom:1px solid #e0e4e8;margin:-1rem -1rem 0.5rem -1rem;">
+邹嘉欣秋招使用 · 最后更新2026年7月 · 持续迭代中
+</div>
+""", unsafe_allow_html=True)
+
 # 检查数据是否已加载
 if not st.session_state.get("data_loaded", False):
     st.switch_page("pages/0_📥_数据导入.py")
@@ -25,17 +33,12 @@ source = get_data_source()
 # 注入Bloomberg终端风全局CSS
 st.markdown("""
 <style>
-    /* === 水印顶栏 === */
-    .stApp::before {
-        content: "邹嘉欣秋招使用";
-        display: block;
-        text-align: center;
-        font-size: 10px;
-        color: #6c7a89;
-        background: #f0f2f5;
-        padding: 2px 0;
-        letter-spacing: 2px;
-        border-bottom: 1px solid #e0e4e8;
+    /* === 固定水印顶栏（所有页面可见） === */
+    header[data-testid="stHeader"] {
+        background: #1a2332 !important;
+    }
+    .stApp {
+        margin-top: 24px;
     }
     /* === Bloomberg Terminal Style === */
     .stApp { font-size: 11px; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #f5f6f8; }

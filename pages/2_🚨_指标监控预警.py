@@ -8,7 +8,8 @@ from config import COLORS, KPI_DIMENSIONS, KPI_NAMES_CN, ALERT_COLORS, DEFAULT_T
 from modules.data_loader import is_data_loaded, get_company_name, get_years
 from modules.kpi_engine import calc_all_kpis, get_alert_summary
 from modules.alert_engine import get_status_description, generate_drill_suggestions
-from utils.ui_helpers import bi_kpi_row, bi_dimension_row, bi_breadcrumb, bi_drill_bar, bi_alert_strip, bi_badge, bi_sparkline, bi_settings_panel
+from utils.ui_helpers import bi_kpi_row, bi_dimension_row, bi_breadcrumb, bi_drill_bar, bi_alert_strip, bi_badge, bi_sparkline, bi_settings_panel, show_watermark
+show_watermark()
 
 if not is_data_loaded():
     st.switch_page("pages/0_📥_数据导入.py")

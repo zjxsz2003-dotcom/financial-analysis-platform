@@ -10,6 +10,13 @@ from modules.data_validator import validate_all
 
 st.set_page_config(page_title="数据导入", page_icon="📥", layout="wide", initial_sidebar_state="expanded")
 
+st.markdown("""
+<div style="text-align:center;font-size:11px;color:#8899aa;background:#f0f2f5;
+padding:3px 0;letter-spacing:1px;border-bottom:1px solid #e0e4e8;margin:-1rem -1rem 0.5rem -1rem;">
+邹嘉欣秋招使用 · 最后更新2026年7月 · 持续迭代中
+</div>
+""", unsafe_allow_html=True)
+
 # ============================================================
 # 辅助函数
 # ============================================================

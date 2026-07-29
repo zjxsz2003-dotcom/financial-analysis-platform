@@ -5,7 +5,8 @@ import streamlit as st
 from config import COLORS, ALERT_COLORS
 from modules.data_loader import is_data_loaded, get_company_name, get_strategy_targets
 from modules.strategy_tracker import get_strategy_progress_data, get_strategy_progress_chart, get_kpi_tree_figure, what_if_simulation
-from utils.ui_helpers import bi_kpi_row, bi_breadcrumb, bi_section, bi_drill_bar, bi_badge
+from utils.ui_helpers import bi_kpi_row, bi_breadcrumb, bi_section, bi_drill_bar, bi_badge, show_watermark
+show_watermark()
 
 if not is_data_loaded():
     st.switch_page("pages/0_📥_数据导入.py")

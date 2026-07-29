@@ -7,7 +7,8 @@ from config import COLORS
 from modules.data_loader import is_data_loaded, get_company_name, get_income, get_balance, get_years, get_segment_data, get_special_metrics
 from modules.kpi_engine import calc_all_kpis
 from modules.business_finance import *
-from utils.ui_helpers import bi_kpi_row, bi_breadcrumb, bi_drill_bar, four_step_card, bi_section
+from utils.ui_helpers import bi_kpi_row, bi_breadcrumb, bi_drill_bar, four_step_card, bi_section, show_watermark
+show_watermark()
 
 if not is_data_loaded():
     st.switch_page("pages/0_📥_数据导入.py")

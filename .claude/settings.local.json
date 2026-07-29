@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "PowerShell(git add -A)",
-      "PowerShell(git commit -m \"����ˮӡ���޼�������ʹ��\" 2>&1)"
+      "PowerShell(git commit -m \"����ˮӡ���޼�������ʹ��\" 2>&1)",
+      "PowerShell(streamlit run app.py --server.port 8501 --server.headless true 2>&1)",
+      "PowerShell(Start-Sleep -Seconds 6; try { $r = Invoke-WebRequest -Uri \"http://localhost:8501\" -TimeoutSec 5 -UseBasicParsing; Write-Output \"Status: $\\($r.StatusCode\\)\" } catch { Write-Output \"Starting: $_\" })",
+      "PowerShell(python -m py_compile \"pages/1_??_ҵ���ںϿ���.py\")",
+      "PowerShell(python -m py_compile \"pages/2_??_ָ����Ԥ��.py\")",
+      "PowerShell(python -m py_compile \"pages/3_??_Ԥ��ƫ�����.py\")",
+      "PowerShell(python -m py_compile \"pages/4_??_ս��Ŀ��׷��.py\")",
+      "PowerShell(python -m py_compile \"pages/5_??_������������.py\")",
+      "PowerShell(python -m py_compile \"pages/6_??_��ҵ�Աȷ���.py\")",
+      "PowerShell(git commit -m \"����ҳ������ˮӡ���޼�������ʹ�� + ������2026��7��\" 2>&1)"
     ]
   }
 }

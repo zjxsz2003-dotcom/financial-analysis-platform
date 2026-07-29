@@ -6,7 +6,8 @@ import pandas as pd
 from config import COLORS
 from modules.data_loader import is_data_loaded, get_company_name, get_budget, get_income, get_segment_data, get_years
 from modules.budget_analysis import get_budget_vs_actual, get_budget_waterfall_chart, get_revenue_deviation_df, get_cost_deviation_df
-from utils.ui_helpers import bi_kpi_row, bi_breadcrumb, bi_drill_bar, bi_badge, bi_settings_panel, bi_section
+from utils.ui_helpers import bi_kpi_row, bi_breadcrumb, bi_drill_bar, bi_badge, bi_settings_panel, bi_section, show_watermark
+show_watermark()
 
 if not is_data_loaded():
     st.switch_page("pages/0_📥_数据导入.py")

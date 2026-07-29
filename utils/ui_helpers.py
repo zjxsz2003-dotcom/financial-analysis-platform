@@ -10,6 +10,15 @@ from config import COLORS, ALERT_COLORS, ALERT_ICONS
 # ============================================================
 # 深色顶栏
 # ============================================================
+def show_watermark():
+    """在所有页面顶部显示水印"""
+    st.markdown("""
+    <div style="text-align:center;font-size:11px;color:#8899aa;background:#f0f2f5;
+    padding:3px 0;letter-spacing:1px;border-bottom:1px solid #e0e4e8;margin-top:-14px;">
+    👤 邹嘉欣秋招使用 · 最后更新2026年7月 · 持续迭代中
+    </div>
+    """, unsafe_allow_html=True)
+
 def bi_topbar(company: str, period: str, extra: str = ""):
     st.markdown(f"""
     <div style="background:{COLORS['primary']};color:#fff;padding:8px 16px;

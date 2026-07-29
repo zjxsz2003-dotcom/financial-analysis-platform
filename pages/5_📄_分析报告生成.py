@@ -7,7 +7,8 @@ from modules.data_loader import is_data_loaded, get_company_name, get_income, ge
 from modules.kpi_engine import calc_all_kpis, get_alert_summary
 from modules.report_generator import build_report_data
 from utils.download import generate_pdf_report
-from utils.ui_helpers import bi_breadcrumb, bi_drill_bar, bi_badge, bi_alert_strip
+from utils.ui_helpers import bi_breadcrumb, bi_drill_bar, bi_badge, bi_alert_strip, show_watermark
+show_watermark()
 from config import KPI_NAMES_CN
 
 if not is_data_loaded(): st.switch_page("pages/0_📥_数据导入.py")
