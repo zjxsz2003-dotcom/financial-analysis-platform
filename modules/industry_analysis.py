@@ -20,7 +20,7 @@ def get_radar_chart(company_values: dict, industry_values: dict, dimensions: lis
     industry_norm = [min(industry_vals[i] / max_vals[i] * 100, 100) for i in range(len(dimensions))]
 
     fig.add_trace(go.Scatterpolar(r=company_norm, theta=dimensions, name="立讯精密",
-        fill="toself", line=dict(color=COLORS["accent"], width=2),
+        fill="toself", line=dict(color=COLORS["ember"], width=2),
         fillcolor="rgba(44,95,138,0.2)"))
     fig.add_trace(go.Scatterpolar(r=industry_norm, theta=dimensions, name="行业均值",
         fill="toself", line=dict(color=COLORS["amber"], width=2, dash="dash"),

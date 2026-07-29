@@ -85,7 +85,7 @@ def revenue_attribution_chart() -> go.Figure:
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     fig.add_trace(go.Bar(x=[str(y) for y in years], y=revenue, name="营业收入",
-        marker_color=COLORS["accent"]), secondary_y=False)
+        marker_color=COLORS["ember"]), secondary_y=False)
     fig.add_trace(go.Scatter(x=[str(y) for y in years],
         y=[round((revenue[i]-cogs[i])/revenue[i]*100,1) for i in range(n)],
         mode="lines+markers", name="毛利率(%)", line=dict(color=COLORS["amber"],width=2)), secondary_y=True)
@@ -136,10 +136,10 @@ def cost_structure_chart() -> go.Figure:
         y=[items["营业成本"]]+[items[k] for k in list(items.keys())[1:]]+[total_cost],
         text=[f"{v:.0f}亿" for v in [items["营业成本"]]+[items[k] for k in list(items.keys())[1:]]+[total_cost]],
         textposition="outside",
-        connector={"line":{"color":COLORS["border"]}},
+        connector={"line":{"color":COLORS["moon"]}},
         increasing={"marker":{"color":COLORS["amber"]}},
         decreasing={"marker":{"color":COLORS["green"]}},
-        totals={"marker":{"color":COLORS["accent"]}},
+        totals={"marker":{"color":COLORS["ember"]}},
     ))
     fig.update_layout(height=240, margin=dict(l=10,r=10,t=25,b=10),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
@@ -217,7 +217,7 @@ def inventory_structure_chart() -> go.Figure:
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     fig.add_trace(go.Bar(x=[str(y) for y in years], y=invs, name="存货(亿)",
-        marker_color=COLORS["accent"]), secondary_y=False)
+        marker_color=COLORS["ember"]), secondary_y=False)
     fig.add_trace(go.Scatter(x=[str(y) for y in years], y=turnover, mode="lines+markers",
         name="周转率(次)", line=dict(color=COLORS["green"],width=2)), secondary_y=True)
 
@@ -292,7 +292,7 @@ def get_rd_efficiency_chart() -> go.Figure:
     rd_cap = spec["研发资本化比例"]
 
     fig = make_subplots(specs=[[{"secondary_y": True}]])
-    fig.add_trace(go.Bar(x=years, y=rd_ratios, name="研发费用率(%)", marker_color=COLORS["accent"]), secondary_y=False)
+    fig.add_trace(go.Bar(x=years, y=rd_ratios, name="研发费用率(%)", marker_color=COLORS["ember"]), secondary_y=False)
     fig.add_trace(go.Scatter(x=years,y=rd_cap,mode="lines+markers",name="资本化(%)",
         line=dict(color=COLORS["amber"],width=2,dash="dot")), secondary_y=True)
 
@@ -308,7 +308,7 @@ def get_customer_concentration_chart() -> go.Figure:
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=years,y=top5,mode="lines+markers",name="前五大客户",
-        line=dict(color=COLORS["accent"],width=2),fill="tozeroy",fillcolor="rgba(44,95,138,0.08)"))
+        line=dict(color=COLORS["ember"],width=2),fill="tozeroy",fillcolor="rgba(44,95,138,0.08)"))
     fig.add_trace(go.Scatter(x=years,y=top1,mode="lines+markers",name="第一大客户",
         line=dict(color=COLORS["red"],width=1.5)))
     fig.add_hline(y=30,line_dash="dash",line_color=COLORS["amber"],annotation_text="30%警戒线")

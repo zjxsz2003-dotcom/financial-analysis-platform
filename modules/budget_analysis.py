@@ -122,10 +122,10 @@ def get_budget_waterfall_chart() -> go.Figure:
         x=items, y=values,
         text=[f"{v:.0f}亿" for v in values],
         textposition="outside",
-        connector={"line": {"color": COLORS["border"]}},
+        connector={"line": {"color": COLORS["moon"]}},
         increasing={"marker": {"color": COLORS["green"]}},
         decreasing={"marker": {"color": COLORS["red"]}},
-        totals={"marker": {"color": COLORS["accent"]}},
+        totals={"marker": {"color": COLORS["ember"]}},
     ))
     fig.update_layout(
         title=dict(text=f"收入预算偏差瀑布图", font=dict(size=12)),

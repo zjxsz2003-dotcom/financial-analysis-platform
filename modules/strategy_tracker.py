@@ -57,11 +57,11 @@ def get_strategy_progress_chart() -> go.Figure:
     ))
 
     # 时间进度参考线
-    fig.add_vline(x=50, line_dash="dash", line_color=COLORS["text_light"],
+    fig.add_vline(x=50, line_dash="dash", line_color=COLORS["slate"],
                   annotation_text="时间进度50%")
 
     fig.update_layout(
-        title=dict(text="年度战略目标完成进度", font=dict(size=14, color=COLORS["text"])),
+        title=dict(text="年度战略目标完成进度", font=dict(size=14, color=COLORS["ink"])),
         xaxis=dict(title="完成率(%)", range=[0, 110]),
         height=250,
         margin=dict(l=20, r=20, t=40, b=20),
@@ -93,7 +93,7 @@ def get_kpi_tree_figure(target_name: str, kpi_data: dict) -> go.Figure:
         parents=parents,
         values=values,
         textinfo="label",
-        marker=dict(colors=[COLORS["accent"]] * len(labels)),
+        marker=dict(colors=[COLORS["ember"]] * len(labels)),
     ))
     fig.update_layout(
         height=250,
