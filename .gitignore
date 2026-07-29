@@ -1,0 +1,30 @@
+# Streamlit
+.streamlit/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+_tmp_*
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive data
+*.xlsx
+!sample_data/*
+
+# Reference skills (large, not needed for deployment)
+reference_skills/
+
+# Large data files
+立讯精密财务报表/
