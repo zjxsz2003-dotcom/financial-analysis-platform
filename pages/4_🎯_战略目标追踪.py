@@ -2,7 +2,7 @@
 import streamlit as st
 from modules.data_loader import is_data_loaded, get_company_name, get_strategy_targets
 from modules.strategy_tracker import get_strategy_progress_data, get_strategy_progress_chart, get_kpi_tree_figure, what_if_simulation
-from utils.ui_helpers import show_watermark, kpi_row, settings_panel, drill_bar, badge, section, breadcrumb, chart_layout
+from utils.ui_helpers import show_watermark, kpi_row, settings_panel, drill_bar, badge, section, breadcrumb, chart_layout, GREEN, AMBER, RED, WHITE, SHADOW
 show_watermark()
 
 if not is_data_loaded(): st.switch_page("pages/0_📥_数据导入.py")

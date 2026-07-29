@@ -6,7 +6,7 @@ from config import KPI_DIMENSIONS, KPI_NAMES_CN, DEFAULT_THRESHOLDS
 from modules.data_loader import is_data_loaded, get_company_name, get_years
 from modules.kpi_engine import calc_all_kpis, get_alert_summary
 from modules.alert_engine import get_status_description, generate_drill_suggestions
-from utils.ui_helpers import show_watermark, kpi_row, dim_row, settings_panel, drill_bar, alert_strip, badge, spark, section, breadcrumb
+from utils.ui_helpers import show_watermark, kpi_row, dim_row, settings_panel, drill_bar, alert_strip, badge, spark, section, breadcrumb, GREEN, AMBER, RED, INK
 show_watermark()
 
 if not is_data_loaded(): st.switch_page("pages/0_📥_数据导入.py")
