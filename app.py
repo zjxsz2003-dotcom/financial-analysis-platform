@@ -25,6 +25,18 @@ source = get_data_source()
 # 注入Bloomberg终端风全局CSS
 st.markdown("""
 <style>
+    /* === 水印顶栏 === */
+    .stApp::before {
+        content: "邹嘉欣秋招使用";
+        display: block;
+        text-align: center;
+        font-size: 10px;
+        color: #6c7a89;
+        background: #f0f2f5;
+        padding: 2px 0;
+        letter-spacing: 2px;
+        border-bottom: 1px solid #e0e4e8;
+    }
     /* === Bloomberg Terminal Style === */
     .stApp { font-size: 11px; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background: #f5f6f8; }
     .stMarkdown h1 { font-size: 18px !important; margin: 4px 0 !important; font-weight: 700; }

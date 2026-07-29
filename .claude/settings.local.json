@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(git add -A)",
+      "PowerShell(git commit -m \"����ˮӡ���޼�������ʹ��\" 2>&1)"
+    ]
+  }
+}
