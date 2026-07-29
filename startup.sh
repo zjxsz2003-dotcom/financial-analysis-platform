@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+apt-get update -qq && apt-get install -y -qq wget unzip > /dev/null 2>&1
 pip install -q streamlit pandas plotly openpyxl fpdf2 openai numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
 wget -q -O /tmp/app.zip https://gitee.com/zoujiaxin2003/financial-analysis-platform/repository/archive/master.zip
 cd /tmp
