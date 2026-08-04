@@ -2,6 +2,7 @@
 数据加载器 v2 — 支持动态数据
 可从 CSMAR 解析结果或用户上传数据中加载
 """
+import os
 import pandas as pd
 import streamlit as st
 
@@ -24,7 +25,7 @@ def load_csmar_data(base_path: str = None):
     from modules.csmar_parser import CSMARParser
 
     if base_path is None:
-        base_path = r"C:\Users\邹嘉欣\Desktop\AI财务分析网页\立讯精密财务报表"
+        base_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "立讯精密财务报表")
 
     parser = CSMARParser(base_path)
 

@@ -169,7 +169,7 @@ with tab1:
     if st.button("🚀 加载立讯精密数据", type="primary", use_container_width=True):
         with st.spinner("加载数据..."):
             # 尝试从本地CSMAR文件加载
-            base = r"C:\Users\邹嘉欣\Desktop\AI财务分析网页\立讯精密财务报表"
+            base = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "立讯精密财务报表")
             if os.path.exists(base):
                 parser = CSMARParser(base)
                 bs = parser.parse_balance_sheet(); inc = parser.parse_income_statement(); cf = parser.parse_cashflow()
