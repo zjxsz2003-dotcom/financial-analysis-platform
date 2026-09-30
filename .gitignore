@@ -38,3 +38,10 @@ skills-lock.json
 DESIGN.md
 sealos-deploy.yaml
 setup.py
+
+# ─── V2 部署必需（放在最后，优先级最高）───
+# V2 内置示例数据与主题配置必须随仓库提交，否则线上无法加载示例
+!V2_专业版/data/
+!V2_专业版/data/**
+!.streamlit/
+!.streamlit/config.toml
