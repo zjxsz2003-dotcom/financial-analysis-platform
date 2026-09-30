@@ -107,20 +107,25 @@ streamlit run app.py
 
 ## 六、部署为永久链接（Streamlit Cloud）
 
-代码已备好，只需在网页端操作：
+代码已推送到 GitHub（`zjxsz2003-dotcom/financial-analysis-platform`，分支 `main`）。
 
-1. 本仓库已推送到 GitHub：`zjxsz2003-dotcom/financial-analysis-platform`
-2. 打开 https://share.streamlit.io → **New app**
-3. 填写：
+按以下步骤拿到永久链接 **https://finance-v2.streamlit.app**：
+
+1. 打开 https://share.streamlit.io → **New app**
+2. 填写：
    - Repository：`zjxsz2003-dotcom/financial-analysis-platform`
    - Branch：`main`
-   - **Main file path：`V2_专业版/app.py`**（⚠ 不要留空，否则会部署到根目录的旧版）
-4. 点 Deploy，等待几分钟后得到 `https://xxx.streamlit.app` —— 这就是永久链接，手机/其他设备都能开
+   - **Main file path：`V2_专业版/app.py`**（⚠ 别留空，否则会部署到根目录的旧版）
+3. 展开 **Advanced settings**，在 **App URL** 处填：`finance-v2`
+   → 最终链接即 `https://finance-v2.streamlit.app`
+   （若提示已被占用，改用 `finance-v2-zjx` 之类）
+4. 点 Deploy，等 2–3 分钟即可访问，手机 / 其他设备都能打开
 
-> 若已有一个旧版 app，也可在它的 Settings → Main file path 改成 `V2_专业版/app.py` 直接复用原链接。
+> 若已有一个旧版 app，也可在它的 Settings 里把 Main file path 改成
+> `V2_专业版/app.py`、URL 改成 `finance-v2`，直接复用原有部署。
 
-部署注意：示例数据（xlsx）已通过 `.gitignore` 例外放行，会随仓库提交；
-若线上加载示例失败，检查仓库里 `V2_专业版/data/` 是否存在。
+部署后若示例数据加载失败，检查仓库里 `V2_专业版/data/` 是否存在
+（已通过 `.gitignore` 例外放行，5 个 xlsx 均已提交）。
 
 ---
 
